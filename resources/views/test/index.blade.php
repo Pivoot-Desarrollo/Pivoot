@@ -409,7 +409,7 @@
                                                                                                 @endforeach
                                                                                             </select>
                                                                                                 <strong
-                                                                                                    class="alert-danger">{{ $errors->first('idCategoriaFk') }}</strong>
+                                                                                                    class="alert-danger">{{ $errors->first('idCategoriaFK') }}</strong>
                                                                                             </div>
                                                                                         </div>
 
@@ -458,6 +458,7 @@
                                                                                                 name="denominacionTest"
                                                                                                 type="text"
                                                                                                 placeholder="Ingrese categoria"
+                                                                                                required
                                                                                                 class="form-control input-md">
                                                                                             <strong
                                                                                                 class="alert-danger">{{ $errors->first('denominacionTest') }}</strong>
@@ -504,13 +505,13 @@
                                                             @case(1)
 
                                                                 <a href="{{ url('tests/' . $tests->idTest . '/habilitar') }}"
-                                                                    class="btn btn-danger">
+                                                                    class="btn btn-warning">
                                                                     Inhabilitar
                                                                 </a>
 
                                                             @break
                                                             @case(2)
-                                                                <a>Estado: Inactivo</a>
+
                                                                 <a href="{{ url('tests/' . $tests->idTest . '/habilitar') }}"
                                                                     class="btn btn-success">
                                                                     Habilitar
@@ -578,7 +579,7 @@
                                                                                                 @endforeach
                                                                                             </select>
                                                                             <strong
-                                                                                class="alert-danger">{{ $errors->first('idCategoriaFk') }}</strong>
+                                                                                class="alert-danger">{{ $errors->first('idCategoriaFK') }}</strong>
                                                                         </div>
                                                                     </div>
 

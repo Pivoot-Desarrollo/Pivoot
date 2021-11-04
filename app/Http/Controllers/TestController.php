@@ -62,15 +62,17 @@ class TestController extends Controller
         $reglas = [
            "idCategoriaFK" => 'required',
            "idTipoTestFK" => 'required',
-           "denominacionTest" => 'required|alpha|min:5',
-           "fechaCreacionTest" => 'required',
+           "denominacionTest" => 'required|alpha|min:5|max:50',
+           "fechaCreacionTest" => 'required|after_or_equal:fechaCreacionTest',
         ];
         //1.1 Establecer mensajes de validacion
         $mensajes = [
             "required" => "Debes completar este campo",
             "idCategoriaFK.required" => "Selecciona la categoria",
             "idTipoTestFK.required" => "Selecciona el tipo de test",
-            "alpha" => "Solo letras"
+            "alpha" => "Solo letras",
+            "max" => "Superaste el limite de caracteres, este no debe ser mayor a 50",
+            "after_or_equal:fechaCreacionTest" => "La fecha debe ser posterior a la actual"
         ];
 
         //2. crear el objeto para validacion
@@ -175,5 +177,36 @@ class TestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function habilitar($id)
+    {
+        //establecer el estado del cliente(null, 1=activo, 0 = inactivo)
+        $tests = Test::find($id);
+        $mensaje = "";
+        switch ($tests->habilitado) {
+            case null:
+                $tests->habilitado = 1;
+                $tests->save();
+                $mensaje = "Estado activo asignado al test: $tests->idTest";
+                break;
+            case 1:
+                $tests->habilitado = 2;
+                $mensaje = "Estado inactivo asignado al test: $tests->idTest";
+                $tests->save();
+                break;
+
+            case 2:
+                $tests->habilitado = 1;
+                $mensaje = "Estado activo asignado al test: $tests->idTest";
+                $tests->save();
+                break;
+        }
+        //redireccionar a la ruta por defecto index:'jugadores'
+        //con un mensaje de exito
+        return redirect('tests')->with(
+            'mensaje_exito',
+            $mensaje
+        );
     }
 }

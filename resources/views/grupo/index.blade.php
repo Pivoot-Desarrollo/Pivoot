@@ -437,13 +437,13 @@
                                                             @case(1)
 
                                                                 <a href="{{ url('grupos/' . $grupos->idGrupo . '/habilitar') }}"
-                                                                    class="btn btn-danger">
+                                                                    class="btn btn-warning">
                                                                     Inhabilitar
                                                                 </a>
 
                                                             @break
                                                             @case(2)
-                                                                <a>Estado: Inactivo</a>
+
                                                                 <a href="{{ url('grupos/' . $grupos->idGrupo . '/habilitar') }}"
                                                                     class="btn btn-success">
                                                                     Habilitar
@@ -518,7 +518,7 @@
                                                             @endforeach
                                                         </select>
                                                                 <strong
-                                                                    class="alert-danger">{{ $errors->first('jugador') }}</strong>
+                                                                    class="alert-danger">{{ $errors->first('categoria') }}</strong>
                                                             </div>
                                                         </div>
 

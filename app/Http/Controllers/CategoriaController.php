@@ -49,8 +49,8 @@ class CategoriaController extends Controller
         //1. Establecer las reglas de validacion en un arreglo
         $reglas = [
             "nombre" => 'required|alpha|max:10',
-            "edadmin" => 'required|numeric|max:3',
-            "edadmax" => 'required|numeric|max:3',
+            "edadmin" => 'required|numeric',
+            "edadmax" => 'required|numeric',
 
         ];
         //1.1 Establecer mensajes de validacion
