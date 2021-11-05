@@ -52,13 +52,15 @@ class GrupoController extends Controller
             "fechaInicio" => 'required',
             "fechaFin" => 'required',
             "categoria" =>'required',
+            "denominacionGrupo" =>'required|alpha|max:50',
 
         ];
         //1.1 Establecer mensajes de validacion
         $mensajes = [
             "required" => "Campo requerido",
-            "categoria.required" => "Selecciona la categoria"
-
+            "categoria.required" => "Selecciona la categoria",
+            "denominacionGrupo.required" => "Campo requerido,Asignale un nombre al grupo",
+            "alpha" => "Debe ser solo letras"
 
         ];
 
@@ -79,6 +81,7 @@ class GrupoController extends Controller
         //crear el nuevo recurso jugadores:
         $maxgrupos = new Grupo();
         $maxgrupos->idGrupo = $gruposmax;
+        $maxgrupos->denominacionGrupo =$request->input("denominacionGrupo");
         $maxgrupos->idCategoriaFK = $request->input("categoria");
         $maxgrupos->fechaInicio= $request->input("fechaInicio");
         $maxgrupos->fechaFin = $request->input("fechaFin");
@@ -135,6 +138,7 @@ class GrupoController extends Controller
          $grupos = Grupo::find($id);
          //actuarlizar el estado del cliente
          //en virtud de los datos que vengan del formulario
+         $grupos->denominacionGrupo = $request->input("denominacionGrupo");
          $grupos->idCategoriaFK = $request->input("idCategoriaFK");
          $grupos->fechaInicio = $request->input("fechaInicio");
          $grupos->fechaFin = $request->input("fechaFin");

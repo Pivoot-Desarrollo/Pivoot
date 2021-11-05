@@ -283,6 +283,7 @@
                                         <thead>
                                             <tr>
                                                 <th>id</th>
+                                                <th>Nombre</th>
                                                 <th>Categoria</th>
                                                 <th>Fecha Inicio</th>
                                                 <th>Fecha Fin</th>
@@ -297,6 +298,7 @@
                                             @foreach ($grupos as $grupos)
                                                 <tr>
                                                     <td>{{ $grupos->idGrupo }}</td>
+                                                    <td>{{ $grupos->denominacionGrupo}}</td>
                                                     <td>{{ $grupos->Categoria()->first()->denominacionCategoria }}
                                                     </td>
                                                     <td>{{ $grupos->fechaInicio }}</td>
@@ -352,6 +354,24 @@
                                                                                             <legend>Actualizar Grupo
                                                                                             </legend>
                                                                                         </strong><br>
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="recipient-name"
+                                                                                                class="col-form-label">Nombre
+                                                                                                Grupo
+                                                                                                <span
+                                                                                                    class="text-danger">*</span>
+                                                                                            </label>
+                                                                                            <input
+                                                                                                value="{{ $grupos->denominacionGrupo }}"
+                                                                                                name="denominacionGrupo"
+                                                                                                placeholder="Ingrese nombre"
+                                                                                                class="form-control input-md">
+
+                                                                                            <strong
+                                                                                                class="alert-danger">{{ $errors->first('denominacionGrupo') }}</strong>
+                                                                                        </div>
+
 
                                                                                         <!-- Text input-->
                                                                                         <div class="form-group">
@@ -498,6 +518,18 @@
                                                             </div>
                                                         </div>
                                                     -->
+
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label">Nombre
+                                                            Grupo
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input value="{{ old('denominacionGrupo') }}" name="denominacionGrupo" pattern="[a-z| |A-Z]+" title="El campo nombre no debe tener caracteres númericos"
+                                                            type="text" placeholder="Ingrese nombre"
+                                                            class="form-control input-md">
+                                                        <strong
+                                                            class="alert-danger">{{ $errors->first('denominacionGrupo') }}</strong>
+                                                    </div>
 
                                                         <div class="form-group">
                                                             <label for="recipient-name"

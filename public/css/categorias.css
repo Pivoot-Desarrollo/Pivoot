@@ -31,13 +31,21 @@ nav h1 {
 
     color: #f2f2f2;
 }
+
+.card-cate{
+    width: 80%;
+    height: 5%;
+    margin: auto;
+
+}
+
 .title {
     text-align: center;
-    font-size: 40px;
-    color: #6a6a6a;
-    margin-top: 100px;
+    font-size: 30px;
+    color: #5f5b5b;
+    margin-top: 10px;
     font-weight: 100;
-    font-family: "Roboto", sans-serif;
+    font-family: "Gotham", sans-serif;
 }
 
 .container {
@@ -53,7 +61,7 @@ nav h1 {
 .container .card {
     width: 200px;
     height: 390px;
-    border-radius: 8px;
+    border-radius: 30px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     margin: 10px;
@@ -69,6 +77,8 @@ nav h1 {
 .container .card img {
     width: 330px;
     height: 220px;
+    position: relative;
+    right: 50px;
 }
 
 .container .card h4 {
@@ -84,7 +94,7 @@ nav h1 {
 .container .card a {
     font-weight: 500;
     text-decoration: none;
-    color: #3498db;
+    color: #f7c900;
 }
 /* Footer */
 
@@ -106,4 +116,19 @@ nav h1 {
     color: #ccc;
     border-bottom: 1px solid #f2f2f2;
     padding-bottom: 20px;
+}
+
+.bton-actualizar{
+    border-color: #f7c900;
+    background-color: #ffffff;
+    position: relative;
+    left: 90px;
+    top: 5px;
+    ;
+}
+
+.bton-crear{
+    border: none;
+    background-color: rgb(110, 211, 9);
+
 }

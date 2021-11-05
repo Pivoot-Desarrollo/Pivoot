@@ -6,7 +6,8 @@
 
         <body>
 
-            <h1 class="title">GESTIONAR CATEGORIAS</h1>
+
+
             <center>
                 @if (session('mensaje_exito'))
                     <div>
@@ -17,18 +18,25 @@
                 @endif
             </center>
 
+            <div class="card-cate">
+                <div class="card-header">
+                    <h1 class="card-title title">GESTIONAR CATEGORIAS</h1><button type="button" class="btn btn-primary bton-crear" data-toggle="modal"
+                    data-target="#exampleModal" data-whatever="@getbootstrap">+</button>
+                </div>
+
             @foreach ($categorias as $categoria)
 
                 <div class="container">
 
+
                     <div class="card">
                         <img src="img/Basketball-bro.svg">
                         <h4>{{ $categoria->denominacionCategoria }}</h4>
-                        <p>JUGADORES ENTRE {{ $categoria->edadMinima }} a {{ $categoria->edadMaxima }}</p>
+                        <p>Edades: {{ $categoria->edadMinima }} a {{ $categoria->edadMaxima }}</p>
                         <a href="{{ 'grupos' }}">Ver</a>
                         <a type="button"
                           href="{{ url('categorias/' . $categoria->idCategoria . '/index') }}"
-                          class="btn btn-primary shadow btn-xs sharp mr-1 bton-actualizar"
+                          class="btn btn-primary btn-xs sharp mr-1 bton-actualizar"
                           data-toggle="modal"
                           data-target="#editar{{ $categoria->idCategoria }}"
                           data-whatever="@getbootstrap"><i class="fa fa-pencil"></i>
